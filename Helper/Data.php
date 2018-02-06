@@ -5,7 +5,7 @@ namespace Pillbox\TrustpilotWidgets\Helper;
  * Class Data
  * @package Pillbox\TrustpilotWidgets\Helper
  */
-class Data
+class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
 
     /**
