@@ -14,7 +14,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isEnabled()
     {
-      return ($this->getConfig('trustpilotwidgets/general/enable' == 1) ? true : false;
+      return ($this->getConfig('trustpilotwidgets/general/enable')  == 1) ? true : false;
     }
 
     /**
