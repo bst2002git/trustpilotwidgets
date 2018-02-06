@@ -25,9 +25,9 @@
 		</parameters>
 	</widget>
 
-  <!-- Trustbox Carousel -->
+  <!-- Trustbox Carousel (Star Rating) -->
 	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Carousel" id="pillbox_trustpilotwidgets_carousel">
-		<label>Trustbox - Carousel</label>
+		<label>Trustbox - Carousel (by Star Rating)</label>
 		<description>In short, this responsive TrustBox communicates that Our customers have great stories to tell about us, and we want to share them with you.</description>
 		<parameters>
       <parameter name="theme" xsi:type="select" required="true" visible="true">
@@ -52,4 +52,75 @@
 			</parameter>
 		</parameters>
 	</widget>
+
+  <!-- Trustbox Carousel (Star Rating) -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\DropDown" id="pillbox_trustpilotwidgets_carousel">
+		<label>Trustbox - Drop-Down (by Star Rating)</label>
+		<description>In short, this TrustBox communicates that We humbly show our stars, and give our consumers the option to explore and learn more about our customer service. </description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Star Rating</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Evaluation -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Evaluation" id="pillbox_trustpilotwidgets_evaluation">
+		<label>Trustbox - Evaluate</label>
+		<description>In short, this TrustBox communicates that We value your opinion. We’d like to hear about your shopping experience while you are on our website.</description>
+		<parameters>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Carousel (Star Rating) -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Grid" id="pillbox_trustpilotwidgets_carousel">
+		<label>Trustbox - Grid (by Star Rating)</label>
+		<description>In short, this TrustBox communicates that We’re constantly getting great reviews! We want to show off our customer testimonials.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Star Rating</label>
+			</parameter>
+		</parameters>
+	</widget>
+
 </widgets>
