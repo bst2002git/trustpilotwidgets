@@ -1,0 +1,33 @@
+{
+  "name": "pillbox/trustpilot-widgets",
+  "description": "Magento 2 Trustpilot Widgets",
+  "require": {
+    "magento/framework": ">=101.0.0"
+  },
+  "type": "magento2-module",
+   "license": "proprietary",
+  "keywords": [
+      "magento 2",
+      "pillbox",
+      "smartsupp",
+      "live chat",
+      "livechat",
+      "magento 2 smartsupp"
+  ],
+  "authors": [
+    {
+      "name": "Tim Green",
+      "email": "tim@totallywicked.co.uk",
+      "homepage": "https://www.totallywicked.co.uk/",
+      "role": "Leader"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Pillbox\\TrustpilotWidgets\\": ""
+    }
+  }
+}

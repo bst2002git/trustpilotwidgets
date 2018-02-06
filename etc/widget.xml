@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:trustpilotwidgets:Magento_Widget:etc/widget.xsd">
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Mini" id="pillbox_trustpilotwidgets_mini">
+		<label>Trustbox - Mini</label>
+		<description>In short, this TrustBox communicates that Our TrustScore speaks for itself. You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+</widgets>
