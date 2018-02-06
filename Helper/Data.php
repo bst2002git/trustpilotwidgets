@@ -33,8 +33,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     public function getStoreLocale()
     {
       $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-      $store = $objectManager->get('Magento\Store\Api\Data\StoreInterface');
-      return $store->getLocaleCode();
+      $resolver = $objectManager->get('Magento\Framework\Locale\Resolver');
+      return $resolver->getLocale();
     }
 
     /**
