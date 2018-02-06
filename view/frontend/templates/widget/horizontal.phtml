@@ -3,13 +3,14 @@
 $helper = $this->helper('Pillbox\TrustpilotWidgets\Helper\Data');
 ?>
 <?php if($helper->isEnabled()) { ?>
-<!-- TrustBox widget - Evaluate -->
+<!-- TrustBox widget - Horizontal -->
 <div class="trustpilot-widget"
 	data-locale="<?php echo $helper->getStoreLocale();?>"
-	data-template-id="530d0eaf748a510e2093cf9b"
+	data-template-id="5406e65db0d04a09e042d5fc"
 	data-businessunit-id="<?php echo $helper->getBusinessUnitID(); ?>"
 	data-style-height="<?php echo $block->getData('height');?>"
-	data-style-width="<?php echo $block->getData('width');?>">
+	data-style-width="<?php echo $block->getData('width');?>"
+	data-theme="<?php echo $block->getData('theme');?>">
 <a href="/trustpilot-reviews" target="_blank">Trustpilot</a>
 </div>
 <!-- End TrustBox widget -->
