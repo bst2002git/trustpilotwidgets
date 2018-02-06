@@ -23,7 +23,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getBusinessUnitID()
     {
-      return $this->getConfig('trustpilotwidgets/general/business_unit_id');
+      return $this->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id');
     }
 
     /**
