@@ -54,7 +54,7 @@
 	</widget>
 
   <!-- Trustbox Carousel (Star Rating) -->
-	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\DropDown" id="pillbox_trustpilotwidgets_carousel">
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\DropDown" id="pillbox_trustpilotwidgets_dropdown">
 		<label>Trustbox - Drop-Down (by Star Rating)</label>
 		<description>In short, this TrustBox communicates that We humbly show our stars, and give our consumers the option to explore and learn more about our customer service. </description>
 		<parameters>
@@ -96,7 +96,7 @@
 	</widget>
 
   <!-- Trustbox Carousel (Star Rating) -->
-	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Grid" id="pillbox_trustpilotwidgets_carousel">
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Grid" id="pillbox_trustpilotwidgets_grid">
 		<label>Trustbox - Grid (by Star Rating)</label>
 		<description>In short, this TrustBox communicates that We’re constantly getting great reviews! We want to show off our customer testimonials.</description>
 		<parameters>
