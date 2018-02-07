@@ -1,0 +1,18 @@
+<?php
+// Get the store locale
+$helper = $this->helper('Pillbox\TrustpilotWidgets\Helper\Data');
+?>
+<?php if($helper->isEnabled()) { ?>
+<!-- TrustBox widget - Pop-Up -->
+<div class="trustpilot-widget"
+	data-locale="<?php echo $helper->getStoreLocale();?>"
+	data-template-id="5418015fb0d04a0c9cf721f2"
+	data-businessunit-id="<?php echo $helper->getBusinessUnitID(); ?>"
+	data-style-height="<?php echo $block->getData('height');?>"
+	data-style-width="<?php echo $block->getData('width');?>"
+	data-theme="<?php echo $block->getData('theme');?>"
+	data-stars="<?php echo $block->getData('stars');?>">
+<a href="/trustpilot-reviews" target="_blank">Trustpilot</a>
+</div>
+<!-- End TrustBox widget -->
+<?php } ?>

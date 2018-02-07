@@ -1,0 +1,17 @@
+<?php
+// Get the store locale
+$helper = $this->helper('Pillbox\TrustpilotWidgets\Helper\Data');
+?>
+<?php if($helper->isEnabled()) { ?>
+<!-- TrustBox widget - Micro Review Count -->
+<div class="trustpilot-widget"
+	data-locale="<?php echo $helper->getStoreLocale();?>"
+	data-template-id="5419b6a8b0d04a076446a9ad"
+	data-businessunit-id="<?php echo $helper->getBusinessUnitID(); ?>"
+	data-style-height="<?php echo $block->getData('height');?>"
+	data-style-width="<?php echo $block->getData('width');?>"
+	data-theme="<?php echo $block->getData('theme');?>">
+<a href="/trustpilot-reviews" target="_blank">Trustpilot</a>
+</div>
+<!-- End TrustBox widget -->
+<?php } ?>
