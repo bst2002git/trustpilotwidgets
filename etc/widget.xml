@@ -148,4 +148,475 @@
 		</parameters>
 	</widget>
 
+  <!-- Trustbox List (Star Rating) -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\List" id="pillbox_trustpilotwidgets_list">
+		<label>Trustbox - List (by Star Rating)</label>
+		<description>In short, this TrustBox communicates that We’re dedicated to our customers! We take the time to reply to their reviews and we try to turn negative experiences into positive ones.</description>
+		<parameters>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Star Rating</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox List Filtered -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ListFiltered" id="pillbox_trustpilotwidgets_listfiltered">
+		<label>Trustbox - List Filtered</label>
+		<description>In short, this TrustBox communicates that We practice corporate transparency with an honest TrustBox.</description>
+		<parameters>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Micro Button -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MicroButton" id="pillbox_trustpilotwidgets_microbutton">
+		<label>Trustbox - Micro Button</label>
+		<description>In short, the Micro TrustBoxes are great little starters that communicate You can trust us.</description>
+		<parameters>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Micro Combo -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MicroCombo" id="pillbox_trustpilotwidgets_microcombo">
+		<label>Trustbox - Micro Combo</label>
+		<description>In short, the Micro TrustBoxes are great little starters that communicate You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Micro Review Count -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MicroReview" id="pillbox_trustpilotwidgets_microreview">
+		<label>Trustbox - Micro Review Count</label>
+		<description>In short, the Micro TrustBoxes are great little starters that communicate You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Micro Star -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MicroStar" id="pillbox_trustpilotwidgets_microstar">
+		<label>Trustbox - Micro Star</label>
+		<description>In short, the Micro TrustBoxes are great little starters that communicate You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Micro Trust Score -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MicroTrustScore" id="pillbox_trustpilotwidgets_microtrustscore">
+		<label>Trustbox - Micro Trust Score</label>
+		<description>In short, the Micro TrustBoxes are great little starters that communicate You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Mini Carousel -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\MiniCarousel" id="pillbox_trustpilotwidgets_minicarousel">
+		<label>Trustbox - Mini Carousel</label>
+		<description>In short, this TrustBox communicates that We are proud of our stars, but you should read all the great things people are saying about us too!</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Star Rating</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Popup -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\PopUp" id="pillbox_trustpilotwidgets_popup">
+		<label>Trustbox - Popup</label>
+		<description>n short, this TrustBox communicates that We humbly show our stars, and give our consumers the option to explore and learn more about our customer service.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Star Rating</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Mini -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductMini" id="pillbox_trustpilotwidgets_productmini">
+		<label>Trustbox - Product Mini</label>
+		<description>In short, this TrustBox communicates We have great products. Here’s an overview of our products’ ratings to help you decide what to buy. </description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Mini Multisource -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductMiniMultisource" id="pillbox_trustpilotwidgets_productminimultisource">
+		<label>Trustbox - Product Mini Multisource</label>
+		<description>In short, this TrustBox helps you easily display product reviews you've collected in the past, together with the product reviews you've collected using Trustpilot.</description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Reviews -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductReviews" id="pillbox_trustpilotwidgets_productreviews">
+		<label>Trustbox - Product Reviews</label>
+		<description>In short, this TrustBox communicates that We have great products. Here’s an overview of our products’ ratings and authentic reviews to help you decide what to buy.</description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Reviews Multisource -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductReviewsMultisource" id="pillbox_trustpilotwidgets_productreviewsmultisource">
+		<label>Trustbox - Product Reviews Multisource</label>
+		<description>In short, this TrustBox helps you easily display product reviews you’ve collected in the past, together with the product reviews you’ve collected using Trustpilot. </description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Reviews Multisource SEO -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductReviewsMultisourceSEO" id="pillbox_trustpilotwidgets_productreviewsmultisourceseo">
+		<label>Trustbox - Product Reviews Multisource SEO</label>
+		<description>A TrustBox to display product reviews you’ve collected from multiple sources, and also gives you all of the SEO benefits to your website.</description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+				<parameter name="name" sort_order="10" visible="true" xsi:type="text">
+					<label>Product Name</label>
+				</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Product Reviews SEO -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ProductReviewsSEO" id="pillbox_trustpilotwidgets_productreviewsseo">
+		<label>Trustbox - Product Reviews SEO</label>
+		<description>A TrustBox to display your product reviews and reassure your customers’ decision to buy. Additionally, it gives you all of the SEO benefits to boost the organic ranking of your site.</description>
+		<parameters>
+			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
+				<label>Product SKU(s)</label>
+			</parameter>
+				<parameter name="name" sort_order="10" visible="true" xsi:type="text">
+					<label>Product Name</label>
+				</parameter>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Quote -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Quote" id="pillbox_trustpilotwidgets_quote">
+		<label>Trustbox - Quote</label>
+		<description>In short, this TrustBox communicates Don’t know what to buy? Here are some quotes from customer reviews to inspire your shopping decisions.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Stars</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Review Collector -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ReviewCollector" id="pillbox_trustpilotwidgets_reviewcollector">
+		<label>Trustbox - Review Collector</label>
+		<description>In short, this TrustBox is a great little starter that communicates You can trust us.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Review Collector -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ReviewCollector" id="pillbox_trustpilotwidgets_reviewcollector">
+		<label>Trustbox - Review Collector</label>
+		<description>In short, this TrustBox communicates that We’re sharing our latest reviews to keep our customers - and our credibility - up to date.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Stars</label>
+			</parameter>
+		</parameters>
+	</widget>
+
+  <!-- Trustbox Starter -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Starter" id="pillbox_trustpilotwidgets_starter">
+		<label>Trustbox - Starter</label>
+		<description>In short, this TrustBox communicates that We are proud of our stars, but you should check out all our great reviews!</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+		</parameters>
+	</widget>
+
 </widgets>
