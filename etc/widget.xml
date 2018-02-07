@@ -554,21 +554,6 @@
   <!-- Trustbox Review Collector -->
 	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ReviewCollector" id="pillbox_trustpilotwidgets_reviewcollector">
 		<label>Trustbox - Review Collector</label>
-		<description>In short, this TrustBox is a great little starter that communicates You can trust us.</description>
-		<parameters>
-      <parameter name="theme" xsi:type="select" required="true" visible="true">
-			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
-				<label>Width</label>
-			</parameter>
-			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
-				<label>Height</label>
-			</parameter>
-		</parameters>
-	</widget>
-
-  <!-- Trustbox Review Collector -->
-	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\ReviewCollector" id="pillbox_trustpilotwidgets_reviewcollector">
-		<label>Trustbox - Review Collector</label>
 		<description>In short, this TrustBox communicates that We’re sharing our latest reviews to keep our customers - and our credibility - up to date.</description>
 		<parameters>
       <parameter name="theme" xsi:type="select" required="true" visible="true">
