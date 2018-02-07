@@ -1,0 +1,11 @@
+image: epcallan/php7-testing-phpunit:7.1-phpunit5
+
+before_script:
+  - composer install
+
+in_docker:
+  stage: test
+  script:
+    - phpunit
+  only:
+    - develop
