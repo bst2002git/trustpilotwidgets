@@ -8,4 +8,4 @@ in_docker:
   script:
     - phpunit
   only:
-    - master
+    - develop
