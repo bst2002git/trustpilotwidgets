@@ -4,7 +4,6 @@ MAINTAINER Tim Green <tim@totallywicked.co.uk>
 # Define BUILD Arguments and Default
 ARG m2_publickey=99999
 ARG m2_privatekey=99999
-ARG m2_dbhost=mysql
 ARG m2_dbuser=mysql
 ARG m2_dbpass=mysql
 ARG m2_dbname=mysql
@@ -13,7 +12,7 @@ ARG m2_version=magento-ce-2.2.2
 # First things first, let's install magento from source
 ENV M2_PUBKEY $m2_publickey
 ENV M2_PRIVKEY $m2_privatekey
-ENV DB_HOST $m2_dbhost
+ENV DB_HOST mysql
 ENV DB_USER $m2_dbuser
 ENV DB_PASS $m2_dbpass
 ENV DB_NAME $m2_dbname
