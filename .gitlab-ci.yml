@@ -7,7 +7,7 @@ variables:
   STAGING_REGISTRY: "registry.gitlab.com"
   CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/trustpilotwidgets:${CI_BUILD_REF_NAME}_test
   CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/trustpilotwidgets:${CI_BUILD_REF_NAME}
-  MYSQL_HOST: localhost
+  MYSQL_HOST: mysql
   MYSQL_DATABASE: trustpilot_widgets
   MYSQL_ROOT_PASSWORD: magento2
   MYSQL_USER: magento2
@@ -24,6 +24,7 @@ build:
   stage: build
   script:
     - docker run --name=mysql -p3306:3306 -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD -d mysql:latest
+    - docker pull $CONTAINER_TEST_IMAGE
     - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
     - docker push $CONTAINER_TEST_IMAGE
