@@ -51,7 +51,7 @@ RUN wget https://files.magerun.net/n98-magerun2.phar && \
 
 # Now we have the auth, let's install M2 base system
 RUN mkdir /builds && \
-    mr2 install \
+    mr2 install --no-ansi \
       --dbHost=$DB_HOST \
       --dbUser=$DB_USER \
       --dbPass=$DB_PASS \
