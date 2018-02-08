@@ -24,6 +24,19 @@ RUN apt-get update -yqq && \
     docker-php-ext-install xsl && \
     docker-php-ext-install intl
 
+# Install Composer
+RUN curl -fsSL https://getcomposer.org/installer | php &&
+    mv composer.phar /usr/local/bin/composer && \
+    composer global require phpunit/phpunit ^5.7 --no-progress --no-scripts --no-interaction
+
+# Install XDebug
+RUN pecl install xdebug && \
+    echo 'zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so' > /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini && \
+    php -m | grep xdebug
+
+# Add composer to PATH
+ENV PATH /root/.composer/vendor/bin:$PATH
+
 # Create auth.json for Magento 2 Install
 # RUN echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
 RUN composer global config http-basic.repo.magento.com $M2_PUBKEY $M2_PRIVKEY
