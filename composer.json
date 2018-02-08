@@ -2,6 +2,11 @@
   "name": "pillbox/trustpilot-widgets",
   "description": "Magento 2 Trustpilot Widgets",
   "require": {
+    "php": "~5.6|~7.0",
+    "magento/module-backend": ">=101.0.0",
+    "magento/module-catalog": ">=101.0.0",
+    "magento/module-eav": ">=101.0.0",
+    "magento/module-layered-navigation": ">=101.0.0",
     "magento/framework": ">=101.0.0"
   },
   "type": "magento2-module",
