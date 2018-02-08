@@ -24,6 +24,7 @@ build:
   stage: build
   script:
     - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
     - docker push $CONTAINER_TEST_IMAGE
     - alias mr2="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE /usr/local/bin/mr2"
     - alias phpunit="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE phpunit"
