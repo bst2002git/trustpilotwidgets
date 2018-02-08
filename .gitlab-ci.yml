@@ -7,7 +7,7 @@ variables:
   STAGING_REGISTRY: "registry.gitlab.com"
   CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}_test
   CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}
-  MYSQL_HOST: localhost
+  MYSQL_HOST: mysql
   MYSQL_DATABASE: trustpilot_widgets
   MYSQL_ROOT_PASSWORD: magento2
   MYSQL_USER: magento2
@@ -23,8 +23,7 @@ stages:
 build:
   stage: build
   script:
-    - docker run -d --name=mysql -d mysql:latest -p 3306:3306 -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD
     - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
-    - alias mr2="docker run $CONTAINER_TEST_IMAGE /usr/local/bin/mr2"
-    - alias phpunit="docker run $CONTAINER_TEST_IMAGE phpunit"
-    - docker run $CONTAINER_TEST_IMAGE "/usr/local/bin/mr2 install --no-ansi --dbHost=$MYSQL_HOST --dbUser=$MYSQL_USER --dbPass=$MYSQL_PASSWORD --dbName=$MYSQL_DATABASE --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName=$MAGENTO2_VERSION --installationFolder=/builds/magento2 --baseUrl=http://magento2.localdomain/"
+    - alias mr2="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE /usr/local/bin/mr2"
+    - alias phpunit="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE phpunit"
+    - mr2 install --no-ansi --dbHost=$MYSQL_HOST --dbUser=$MYSQL_USER --dbPass=$MYSQL_PASSWORD --dbName=$MYSQL_DATABASE --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName=$MAGENTO2_VERSION --installationFolder=/builds/magento2 --baseUrl=http://magento2.localdomain/
