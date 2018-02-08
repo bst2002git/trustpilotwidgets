@@ -14,7 +14,7 @@ variables:
   MYSQL_PASSWORD: magento2
 
 before_script:
-  - docker login -u gitlab-ci --password-stdin $CI_JOB_TOKEN $STAGING_REGISTRY
+  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
 
 stages:
   - build
