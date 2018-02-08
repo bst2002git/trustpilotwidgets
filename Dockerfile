@@ -25,7 +25,7 @@ RUN apt-get update -yqq && \
     docker-php-ext-install intl
 
 # Install Composer
-RUN curl -fsSL https://getcomposer.org/installer | php &&
+RUN curl -fsSL https://getcomposer.org/installer | php && \
     mv composer.phar /usr/local/bin/composer && \
     composer global require phpunit/phpunit ^5.7 --no-progress --no-scripts --no-interaction
 
