@@ -24,7 +24,6 @@ stages:
 build:
   stage: build
   script:
-    - docker run -d --name=mysql -d mysql:latest -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD
     - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
     - docker run -d --name=app -d $CONTAINER_TEST_IMAGE
     - docker exec -it app /usr/local/bin/mr2 install --no-ansi --dbHost=$MYSQL_HOST --dbUser=$MYSQL_USER --dbPass=$MYSQL_PASSWORD --dbName=$MYSQL_DATABASE --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName=$MAGENTO2_VERSION --installationFolder="/builds/magento2" --baseUrl="http://magento2.localdomain/"
