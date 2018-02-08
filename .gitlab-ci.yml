@@ -1,10 +1,31 @@
-image: epcallan/php7-testing-phpunit:7.1-phpunit5
+image: docker:latest
+
+services:
+  - docker:dind
+  - mysql:latest
+
+variables:
+  STAGING_REGISTRY: "registry.gitlab.com"
+  CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}_test
+  CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}
+  MYSQL_DATABASE: trustpilot_widgets
+  MYSQL_ROOT_PASSWORD: magento2
+  MYSQL_USER: magento2
+  MYSQL_PASSWORD: magento2
 
 before_script:
-  - echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
-  - composer install --prefer-dist
+  - docker login -u gitlab-ci -p $CI_BUILD_TOKEN $STAGING_REGISTRY
 
-in_docker:
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - docker run -d --name=mysql -d mysql:latest -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD
+    - docker build --pull -t $CONTAINER_TEST_IMAGE .
+
+test:
   stage: test
   script:
     - phpunit
