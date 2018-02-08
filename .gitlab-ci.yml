@@ -23,6 +23,7 @@ stages:
 build:
   stage: build
   script:
+    - docker run -d --name=mysql -d mysql:latest -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD
     - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
     - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
     - docker push $CONTAINER_TEST_IMAGE
