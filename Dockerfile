@@ -46,3 +46,5 @@ RUN wget https://files.magerun.net/n98-magerun2.phar && \
     mv n98-magerun2.phar /usr/local/bin/n98-magerun && \
     chmod 777 /usr/local/bin/n98-magerun && \
     ln -nsf /usr/local/bin/n98-magerun /usr/local/bin/mr2
+
+ENTRYPOINT ["/bin/bash","-c"]
