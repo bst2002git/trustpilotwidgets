@@ -1,14 +1,23 @@
 FROM epcallan/php7-testing-phpunit:7.1-phpunit5
 MAINTAINER Tim Green <tim@totallywicked.co.uk>
 
+# Define BUILD Arguments and Default
+ARG m2_publickey=99999
+ARG m2_privatekey=99999
+ARG m2_dbhost=mysql
+ARG m2_dbuser=mysql
+ARG m2_dbpass=mysql
+ARG m2_dbname=mysql
+ARG m2_version=magento-ce-2.2.2
+
 # First things first, let's install magento from source
-ENV M2_PUBKEY d3e6699252049f4784140b0458f718c0
-ENV M2_PRIVKEY 10d0b46f8b4a6482b26882739111a18f
-ENV DB_HOST mysql
-ENV DB_USER magento2
-ENV DB_PASS magento2
-ENV DB_NAME trustpilot_widgets
-ENV MAGENTO2_VERSION magento-ce-2.2.2
+ENV M2_PUBKEY $m2_publickey
+ENV M2_PRIVKEY $m2_privatekey
+ENV DB_HOST $m2_dbhost
+ENV DB_USER $m2_dbuser
+ENV DB_PASS $m2_dbpass
+ENV DB_NAME $m2_dbname
+ENV MAGENTO2_VERSION $m2_version
 
 # Run updates and install mysql client
 RUN apt-get update -yqq && \

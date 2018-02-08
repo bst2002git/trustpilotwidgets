@@ -22,5 +22,4 @@ stages:
 build:
   stage: build
   script:
-    - docker run -d --name=mysql -d mysql:latest -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD
-    - docker build --pull -t $CONTAINER_TEST_IMAGE .
+    - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --build-arg m2_dbuser=$MYSQL_USER --build-arg m2_dbpass=$MYSQL_PASSWORD --build-arg m2_dbname=$MYSQL_DATABASE --pull -t $CONTAINER_TEST_IMAGE .
