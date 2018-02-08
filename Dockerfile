@@ -1,4 +1,4 @@
-FROM epcallan/php7-testing-phpunit:7.1-phpunit5
+FROM php:7.1-cli
 MAINTAINER Tim Green <tim@totallywicked.co.uk>
 
 # Define BUILD Arguments and Default
@@ -11,18 +11,13 @@ ENV M2_PRIVKEY $m2_privatekey
 
 # Run updates and install mysql client
 RUN apt-get update -yqq && \
-    apt-get -y upgrade && \
     apt-get install -y \
-                          mysql-client \
-                          curl wget \
-                          libmcrypt-dev \
-                          libpng-dev \
-                          libz-dev \
-                          libxml2-dev \
-                          libxslt1-dev \
-                          zlib1g-dev \
-                          libicu-dev \
-                          g++ && \
+      git zlib1g-dev libsqlite3-dev mysql-client curl wget \
+      libmcrypt-dev libpng-dev libz-dev libxml2-dev libxslt1-dev \
+      zlib1g-dev libicu-dev g++ && \
+    docker-php-ext-install zip && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install pdo_sqlite && \
     docker-php-ext-install mcrypt && \
     docker-php-ext-install gd && \
     docker-php-ext-install soap && \
