@@ -1,26 +1,25 @@
 <?php
-namespace Pillbox\TrustpilotWidgets\Test\Unit\Mini;
+namespace Helper;
 
-use \PHPUnit\Framework\TestCase as TestCase;
-use Pillbox\TrustpilotWidgets\Helper\Data as WidgetHelper;
+use PHPUnit\Framework\TestCase;
 
-class MiniWidgetTest extends TestCase {
-
-  /**
-   * @var Pillbox\TrustpilotWidgets\Helper\Data
-   */
-  protected $widgetHelper;
+class DataTest extends TestCase {
 
   /**
    * Tests whether the helper method returns a boolean true
    */
-  public function testGetBusinessUnitIdTrue()
+  public function testIsEnabledTrue()
   {
     $configPath = 'trustpilotwidgets/general/trustpilot_business_unit_id';
     $dbValue = true;
 
+    $this->assertInstanceOf(
+      Data::class,
+      Data::isEnabled()
+    );
+
     // Asserts that the value is correct
-    $this->assertEquals($dbValue, $this->_runConfigCheck($configPath, $dbValue));
+    // $this->assertEquals($dbValue, $this->_runConfigCheck($configPath, $dbValue));
   }
 
   /**
@@ -41,7 +40,7 @@ class MiniWidgetTest extends TestCase {
    * @param  mixed  $value Value to test for
    * @return mixed         Returned value
    */
-  private function _runConfigCheck($path, $value)
+  public function _runConfigCheck($path, $value)
   {
     $scopeConfigMock = $this->getMockBuilder(\Magento\Framework\App\Config\ScopeConfigInterface::class)
                             ->disableOriginalConstructor()
