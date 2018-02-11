@@ -1,18 +1,17 @@
-image: docker:latest
+image: registry.gitlab.com/rawveg_modules/test-environment
 
 services:
-  - docker:dind
+  - mysql:latest
 
 variables:
   STAGING_REGISTRY: "registry.gitlab.com"
-  CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/trustpilotwidgets:${CI_BUILD_REF_NAME}_test
-  CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/trustpilotwidgets:${CI_BUILD_REF_NAME}
+  CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_test
+  CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}
   MYSQL_HOST: mysql
-  MYSQL_DATABASE: trustpilot_widgets
+  MYSQL_DATABASE: ${CI_PROJECT_NAME}
   MYSQL_ROOT_PASSWORD: magento2
   MYSQL_USER: magento2
   MYSQL_PASSWORD: magento2
-  MAGENTO2_VERSION: magento-ce-2.2.2
 
 before_script:
   - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
@@ -23,11 +22,8 @@ stages:
 build:
   stage: build
   script:
-    - docker run --name=mysql -p3306:3306 -e MYSQL_DATABASE=$MYSQL_DATABASE -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD -e MYSQL_USER=$MYSQL_USER -e MYSQL_PASSWORD=$MYSQL_PASSWORD -d mysql:latest
-    - docker pull $CONTAINER_TEST_IMAGE
-    - docker build --build-arg m2_publickey=$MAGENTO_USERNAME --build-arg m2_privatekey=$MAGENTO_PASSWORD --pull -t $CONTAINER_TEST_IMAGE .
-    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
-    - docker push $CONTAINER_TEST_IMAGE
-    - alias mr2="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE /usr/local/bin/mr2"
-    - alias phpunit="docker run --link mysql:mysql $CONTAINER_TEST_IMAGE phpunit"
-    - docker run --link mysql:mysql $CONTAINER_TEST_IMAGE "/usr/local/bin/mr2 install --no-ansi --dbHost=$MYSQL_HOST --dbUser=$MYSQL_USER --dbPass=$MYSQL_PASSWORD --dbName=$MYSQL_DATABASE --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName=$MAGENTO2_VERSION --installationFolder=/builds/magento2 --baseUrl=http://magento2.localdomain/"
+  # First we need to install Magento 2 in order to use it for testing
+  - cd /builds/magento2
+  - php bin/magento setup:install --base-url="http://yoururl.com/" --db-host=$MYSQL_HOST --db-name=$MYSQL_DATABASE --db-user=$MYSQL_USER --db-password=$MYSQL_PASSWORD --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin123" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin"
+  only:
+  - develop
