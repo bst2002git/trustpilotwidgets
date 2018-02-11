@@ -1,9 +1,10 @@
 <?php
 namespace Pillbox\TrustpilotWidgets\Test\Unit\Mini;
 
+use \PHPUnit\Framework\TestCase as TestCase;
 use Pillbox\TrustpilotWidgets\Helper\Data as WidgetHelper;
 
-class MiniWidgetTest extends \PHPUnit_Framework_TestCase {
+class MiniWidgetTest extends TestCase {
 
   /**
    * @var Pillbox\TrustpilotWidgets\Helper\Data
