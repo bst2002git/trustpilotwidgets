@@ -13,8 +13,8 @@ variables:
   MYSQL_USER: magento2
   MYSQL_PASSWORD: magento2
 
-before_script:
-  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
+# before_script:
+#  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
 
 stages:
   - build
