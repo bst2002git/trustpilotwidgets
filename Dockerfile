@@ -1,28 +1,42 @@
-FROM php:7.1-cli
+FROM php:7.1
 MAINTAINER Tim Green <tim@totallywicked.co.uk>
 
-# Define BUILD Arguments and Default
-ARG m2_publickey=99999
-ARG m2_privatekey=99999
-
 # First things first, let's install magento from source
-ENV M2_PUBKEY $m2_publickey
-ENV M2_PRIVKEY $m2_privatekey
+ENV M2_PUBKEY="d3e6699252049f4784140b0458f718c0"
+ENV M2_PRIVKEY="10d0b46f8b4a6482b26882739111a18f"
+ENV MYSQL_HOST="mysql"
+ENV MYSQL_DATABASE="magento2"
+ENV MYSQL_USERNAME="magento2"
+ENV MYSQL_PASSWORD="magento2"
 
-# Run updates and install mysql client
-RUN apt-get update -yqq && \
-    apt-get install -y \
-      git zlib1g-dev libsqlite3-dev mysql-client curl wget \
-      libmcrypt-dev libpng-dev libz-dev libxml2-dev libxslt1-dev \
-      zlib1g-dev libicu-dev g++ && \
-    docker-php-ext-install zip && \
-    docker-php-ext-install pdo_mysql && \
-    docker-php-ext-install pdo_sqlite && \
-    docker-php-ext-install mcrypt && \
-    docker-php-ext-install gd && \
-    docker-php-ext-install soap && \
-    docker-php-ext-install xsl && \
-    docker-php-ext-install intl
+RUN apt-get update && apt-get install -y \
+  cron \
+  libfreetype6-dev \
+  libicu-dev \
+  libjpeg62-turbo-dev \
+  libmcrypt-dev \
+  libpng12-dev \
+  libxslt1-dev \
+  mysql-client \
+  wget \
+  curl \
+  zip \
+  git
+
+RUN docker-php-ext-configure \
+  gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/
+
+RUN docker-php-ext-install \
+  bcmath \
+  gd \
+  intl \
+  mbstring \
+  mcrypt \
+  opcache \
+  pdo_mysql \
+  soap \
+  xsl \
+  zip
 
 # Install Composer
 RUN curl -fsSL https://getcomposer.org/installer | php && \
@@ -38,7 +52,7 @@ RUN pecl install xdebug && \
 ENV PATH /root/.composer/vendor/bin:$PATH
 
 # Create auth.json for Magento 2 Install
-# RUN echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
+RUN echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > /root/.composer/auth.json
 RUN composer global config http-basic.repo.magento.com $M2_PUBKEY $M2_PRIVKEY
 
 # Install n98-magerun2
@@ -47,4 +61,9 @@ RUN wget https://files.magerun.net/n98-magerun2.phar && \
     chmod 777 /usr/local/bin/n98-magerun && \
     ln -nsf /usr/local/bin/n98-magerun /usr/local/bin/mr2
 
-ENTRYPOINT ["/bin/bash","-c"]
+# Now install an instance of Magento 2
+RUN mkdir -p /builds/magento2 && \
+    composer create-project --repository-url=https://repo.magento.com/ magento/project-community-edition /builds/magento2 && \
+    cd /builds/magento2 && \
+    find . -type d -exec chmod 700 {} \; && find . -type f -exec chmod 600 {} \;
+#    php bin/magento setup:install --base-url="http://yoururl.com/" --db-host=${MYSQL_HOST} --db-name=${MYSQL_DATABASE} --db-user=${MYSQL_USERNAME} --db-password=${MYSQL_PASSWORD} --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin123" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin"
