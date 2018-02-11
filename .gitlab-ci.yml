@@ -1,4 +1,4 @@
-image: registry.gitlab.com/rawveg_modules/test-environment
+image: registry.gitlab.com/rawveg_modules/test-environment:develop
 
 services:
   - mysql:latest
@@ -25,5 +25,6 @@ build:
   # First we need to install Magento 2 in order to use it for testing
   - cd /builds/magento2
   - php bin/magento setup:install --base-url="http://yoururl.com/" --db-host=$MYSQL_HOST --db-name=$MYSQL_DATABASE --db-user=$MYSQL_USER --db-password=$MYSQL_PASSWORD --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin123" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin"
+  # Now that we've installed we need to run the tests
   only:
   - develop
