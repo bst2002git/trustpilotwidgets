@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.1/phpunit.xsd"
-    colors="true"
-    >
-    <testsuite name="Pillbox Unit Tests">
-        <directory suffix="Test.php">source/Test/Unit</directory>
-    </testsuite>
+<phpunit
+        colors="true"
+        bootstrap="/builds/magento2/dev/tests/unit/framework/bootstrap.php">
     <php>
-        <ini name="date.timezone" value="Europe/London"/>
-        <ini name="xdebug.max_nesting_level" value="200"/>
+        <const name="MAGENTO_ROOT" value="/builds/magento2"/>
     </php>
-    <filter>
-        <whitelist addUncoveredFilesFromWhiteList="true">
-            <directory suffix=".php">source/</directory>
-            <exclude>
-                <directory>source/Test</directory>
-            </exclude>
-        </whitelist>
-    </filter>
+    <testsuites>
+        <testsuite name="Trustpilot Widgets Tests">
+            <directory suffix="Test.php">Tests/Unit/</directory>
+        </testsuite>
+    </testsuites>
 </phpunit>

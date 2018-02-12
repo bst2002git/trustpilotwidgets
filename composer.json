@@ -2,7 +2,7 @@
   "name": "pillbox/trustpilot-widgets",
   "description": "Magento 2 Trustpilot Widgets",
   "require": {
-    "magento/framework": ">=101.0.0"
+   "php": "~7.0.2|~7.1.0"
   },
   "type": "magento2-module",
    "license": "proprietary",
