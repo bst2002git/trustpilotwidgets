@@ -7,7 +7,7 @@
     </php>
     <testsuites>
         <testsuite name="Trustpilot Widgets Tests">
-            <directory>.</directory>
+            <directory suffix="Test.php">Tests/Unit/</directory>
         </testsuite>
     </testsuites>
 </phpunit>

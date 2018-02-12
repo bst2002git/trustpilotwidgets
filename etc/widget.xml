@@ -149,7 +149,7 @@
 	</widget>
 
   <!-- Trustbox List (Star Rating) -->
-	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\List" id="pillbox_trustpilotwidgets_list">
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Listwidget" id="pillbox_trustpilotwidgets_list">
 		<label>Trustbox - List (by Star Rating)</label>
 		<description>In short, this TrustBox communicates that We’re dedicated to our customers! We take the time to reply to their reviews and we try to turn negative experiences into positive ones.</description>
 		<parameters>
