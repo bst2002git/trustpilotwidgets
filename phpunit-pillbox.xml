@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit
-        colors="true"
-        bootstrap="/builds/magento2/dev/tests/unit/framework/bootstrap.php">
+<phpunit colors="true" bootstrap="/builds/magento2/dev/tests/unit/framework/bootstrap.php">
     <php>
         <const name="MAGENTO_ROOT" value="/builds/magento2"/>
     </php>

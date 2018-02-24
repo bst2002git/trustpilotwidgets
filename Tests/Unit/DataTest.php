@@ -1,7 +1,7 @@
 <?php
 namespace Pillbox\TrustpilotWidgets\Tests\Unit\Helper;
 
-use \Pillbox\TrustpilotWidgets\Helper\Data as Data;
+use Pillbox\TrustpilotWidgets\Helper\Data as Data;
 
 class DataTest extends \PHPUnit\Framework\TestCase
 {
