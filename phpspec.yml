@@ -1,0 +1,5 @@
+suites:
+ trustpilotwidgets:
+ namespace: Pillbox\TrustpilotWidgets
+ psr4_prefix: Pillbox\TrustpilotWidgets
+ src_path: .

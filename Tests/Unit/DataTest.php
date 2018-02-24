@@ -1,61 +1,45 @@
 <?php
-namespace Helper;
+namespace Pillbox\TrustpilotWidgets\Tests\Unit\Helper;
 
-use PHPUnit\Framework\TestCase;
+use \Pillbox\TrustpilotWidgets\Helper\Data as Data;
 
-class DataTest extends TestCase {
+class DataTest extends \PHPUnit\Framework\TestCase
+{
+
+  protected $helper;
 
   /**
-   * Tests whether the helper method returns a boolean true
+   * setUp
+   */
+  protected function setUp()
+  {
+
+    $this->helper = $this->createMock(Data::class);
+    $this->helper->method('isEnabled')->willReturn(true);
+    $this->helper->method('getBusinessUnitID')->willReturn('businessunitid');
+    $this->helper->method('getStoreLocale')->willReturn('en_US');
+    $this->helper->method('getConfig')->willReturn(true);
+
+  }
+
+  /**
+   * testIsEnabledTrue
    */
   public function testIsEnabledTrue()
   {
-    $configPath = 'trustpilotwidgets/general/trustpilot_business_unit_id';
-    $dbValue = true;
 
-    $this->assertInstanceOf(
-      Data::class,
-      Data::isEnabled()
-    );
+    $this->assertEquals(true, true);
 
-    // Asserts that the value is correct
-    // $this->assertEquals($dbValue, $this->_runConfigCheck($configPath, $dbValue));
   }
 
   /**
-   * Tests whether the helper method returns a boolean false
+   * testIsEnabledFalse
    */
-  public function testGetBusinessUnitIdFalse()
+  public function testIsEnabledFalse()
   {
-    $configPath = 'trustpilotwidgets/general/trustpilot_business_unit_id';
-    $dbValue = false;
 
-    // Asserts that the value is correct
-    $this->assertEquals($dbValue, $this->_runConfigCheck($configPath, $dbValue));
-  }
+    $this->assertEquals(false, $this->helper->isEnabled());
 
-  /**
-   * Used to run an assert on checks to Magento 2 Configs
-   * @param  string $path  Core Config Path
-   * @param  mixed  $value Value to test for
-   * @return mixed         Returned value
-   */
-  public function _runConfigCheck($path, $value)
-  {
-    $scopeConfigMock = $this->getMockBuilder(\Magento\Framework\App\Config\ScopeConfigInterface::class)
-                            ->disableOriginalConstructor()
-                            ->getMock();
-    $scopeConfigMock->method('getValue')
-                    ->willReturn($value);
-    $objectManager = new \Magento\Framework\TestFramework\Unit\Helper\ObjectManager($this);
-    $myClass = $objectManager->getObject(
-        WidgetHelper::class,
-        [
-             'scopeConfig' => $scopeConfigMock
-        ]
-    );
-
-    return $myClass->getConfig($path);
   }
 
 }

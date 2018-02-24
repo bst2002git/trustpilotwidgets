@@ -55,6 +55,9 @@ ENV PATH /root/.composer/vendor/bin:$PATH
 RUN echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > /root/.composer/auth.json
 RUN composer global config http-basic.repo.magento.com $M2_PUBKEY $M2_PRIVKEY
 
+# Install PHPSpec
+RUN composer global require phpspec/phpspec
+
 # Install n98-magerun2
 RUN wget https://files.magerun.net/n98-magerun2.phar && \
     mv n98-magerun2.phar /usr/local/bin/n98-magerun && \
