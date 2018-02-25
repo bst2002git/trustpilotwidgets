@@ -6,7 +6,6 @@ use Pillbox\TrustpilotWidgets\Helper\Data as Data;
 class DataTest extends \PHPUnit\Framework\TestCase
 {
 
-  public $class = "Pillbox\TrustpilotWidgets\Helper\Data";
   protected $helper;
 
   /**
@@ -26,7 +25,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
 
   public function displayInfo($method, $test)
   {
-      fwrite(STDERR, "{$this->class}::$method - {$test} running...\n\n");
+      fwrite(STDERR, "$method - {$test} running...\n");
   }
 
   /**
