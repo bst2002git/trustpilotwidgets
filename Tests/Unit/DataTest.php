@@ -29,7 +29,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
 
     // helper_success stores positive (successful) results
     $this->helper = $this->createMock(Data::class);
-    $this->helper->method('getConfig')->willReturn($this->returnValueMap($configmap));
+    $this->helper->method('getConfig')->willReturnValueMap($configmap);
     $this->helper->method('isEnabled')->willReturn($this->helper->getConfig('trustpilotwidgets/general/enable'));
     $this->helper->method('getBusinessUnitID')->willReturn($this->helper->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id'));
     $this->helper->method('getStoreLocale')->willReturn('en_US');
