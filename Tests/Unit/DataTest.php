@@ -7,6 +7,9 @@ class DataTest extends \PHPUnit\Framework\TestCase
 {
 
   protected $helper;
+  public $enabled = true;
+  public $businessUnitID = '1111111111';
+  public $locale = 'en_US';
 
   /**
    * setUp
@@ -17,16 +20,22 @@ class DataTest extends \PHPUnit\Framework\TestCase
     // Return value mapping - maps the values that will be returned by the getConfig
     // method, depending on the value passed to it
     $configmap = array(
-      array('trustpilotwidgets/general/enable', true),
-      array('trustpilotwidgets/general/trustpilot_business_unit_id', '1111111111')
+      array('trustpilotwidgets/general/enable', $this->enabled),
+      array('trustpilotwidgets/general/trustpilot_business_unit_id', $this->businessUnitID)
     );
 
     // helper_success stores positive (successful) results
     $this->helper = $this->createMock(Data::class);
+
+    // Add return value mapping
     $this->helper->method('getConfig')->will($this->returnValueMap($configmap));
+
+    // Ensure that the methods that rely on the getConfig method return the correct result
     $this->helper->method('isEnabled')->willReturn($this->helper->getConfig('trustpilotwidgets/general/enable'));
     $this->helper->method('getBusinessUnitID')->willReturn($this->helper->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id'));
-    $this->helper->method('getStoreLocale')->willReturn('en_US');
+
+    // Mock the getStoreLocale method
+    $this->helper->method('getStoreLocale')->willReturn($this->locale);
 
   }
 
@@ -35,9 +44,10 @@ class DataTest extends \PHPUnit\Framework\TestCase
    */
   public function testIsEnabled()
   {
-    fwrite(STDERR, print_r($this->helper->getConfig('trustpilotwidgets/general/enable'), TRUE));
-    // Run assertion
-    $this->assertEquals(true, $this->helper->isEnabled(), 'isEnabled did not return a true value');
+
+    // Run assertions
+    $this->assertEquals($this->enabled, $this->helper->getConfig('trustpilotwidgets/general/enable'));
+    $this->assertEquals($this->enabled, $this->helper->isEnabled());
 
   }
 
@@ -47,8 +57,17 @@ class DataTest extends \PHPUnit\Framework\TestCase
   public function testGetBusinessUnitID()
   {
 
+    // Run assertions
+    $this->assertEquals($this->businessUnitID, $this->helper->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id'));
+    $this->assertEquals($this->businessUnitID, $this->helper->getBusinessUnitID());
+
+  }
+
+  public function testGetStoreLocale()
+  {
+
     // Run assertion
-    $this->assertEquals('1111111111', $this->helper->getBusinessUnitID(), 'isEnabled did not return a false value');
+    $this->assertEquals($this->locale, $this->helper->getStoreLocale());
 
   }
 
