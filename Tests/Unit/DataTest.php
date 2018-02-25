@@ -14,8 +14,23 @@ class DataTest extends \PHPUnit\Framework\TestCase
   protected function setUp()
   {
 
+    // Return value mapping - maps the values that will be returned by the getConfig
+    // method, depending on the value passed to it
+    $configmap = [
+      [
+        'trustpilotwidgets/general/enable',
+        'trustpilotwidgets/general/trustpilot_business_unit_id'
+      ],
+      [
+        true,
+        '1111111111'
+      ]
+    ];
+
     // helper_success stores positive (successful) results
     $this->helper = $this->createMock(Data::class);
+    $this->helper->method('getConfig')->will($this->returnValueMap($configmap));
+    $this->helper->method('getStoreLocale')->willReturn('en_US');
 
   }
 
@@ -25,31 +40,8 @@ class DataTest extends \PHPUnit\Framework\TestCase
   public function testIsEnabled()
   {
 
-    // set the return value
-    $returnValue = true;
-
-    // ensure the getConfig method returns the result
-    $this->setConfigReturnValue($returnValue);
-
     // Run assertion
-    $this->assertEquals($returnValue, $this->helper->isEnabled(), 'isEnabled did not return a true value');
-
-  }
-
-  /**
-   * testIsEnabledFalse
-   */
-  public function testIsEnabledFalse()
-  {
-
-    // set the return value
-    $returnValue = false;
-
-    // ensure the getConfig method returns the result
-    $this->setConfigReturnValue($returnValue);
-
-    // Run assertion
-    $this->assertEquals($returnValue, $this->helper->isEnabled(), 'isEnabled did not return a false value');
+    $this->assertEquals(true, $this->helper->isEnabled(), 'isEnabled did not return a true value');
 
   }
 
@@ -59,25 +51,8 @@ class DataTest extends \PHPUnit\Framework\TestCase
   public function testGetBusinessUnitID()
   {
 
-    // set the return value
-    $returnValue = '1111111111';
-
-    // ensure that the getConfig method returns the right value
-    $this->setConfigReturnValue($returnValue);
-
     // Run assertion
-    $this->assertEquals($returnValue, $this->helper->getBusinessUnitID(), 'isEnabled did not return a false value');
-
-  }
-
-  /**
-   * setConfigReturnValue
-   * @param mixed $value Value that the getConfig method will return
-   */
-  public function setConfigReturnValue($value)
-  {
-
-    $this->helper->method('getConfig')->willReturn($value);
+    $this->assertEquals('1111111111', $this->helper->getBusinessUnitID(), 'isEnabled did not return a false value');
 
   }
 
