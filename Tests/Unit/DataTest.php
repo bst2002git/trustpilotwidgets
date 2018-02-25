@@ -6,6 +6,7 @@ use Pillbox\TrustpilotWidgets\Helper\Data as Data;
 class DataTest extends \PHPUnit\Framework\TestCase
 {
 
+  public $class = "Pillbox\TrustpilotWidgets\Helper\Data";
   protected $helper;
 
   /**
@@ -23,15 +24,25 @@ class DataTest extends \PHPUnit\Framework\TestCase
 
   }
 
+  public function displayInfo($method, $test)
+  {
+      fwrite(STDERR, "{$class}::$method - {$test} running...");
+  }
+
   /**
    * testIsEnabledTrue
    */
   public function testIsEnabled()
   {
+
+    // Display test info
+    $this->displayInfo("isEnabled", "testIsEnabled");
+
     // ensure the getConfig method returns the result
     $this->helper->method('getConfig')->willReturn(true);
     $this->helper->method('isEnabled')->willReturn($this->helper->getConfig(true));
-    $this->assertEquals(true, $this->helper->isEnabled());
+
+    $this->assertEquals(true, $this->helper->isEnabled(), 'isEnabled did not return a true value');
 
   }
 
@@ -40,10 +51,15 @@ class DataTest extends \PHPUnit\Framework\TestCase
    */
   public function testIsEnabledFalse()
   {
+
+    // Display test info
+    $this->displayInfo("isEnabled", "testIsEnabledFalse");
+
     // ensure the getConfig method returns the result
     $this->helper->method('getConfig')->willReturn(false);
     $this->helper->method('isEnabled')->willReturn($this->helper->getConfig(false));
-    $this->assertEquals(false, $this->helper->isEnabled());
+
+    $this->assertEquals(false, $this->helper->isEnabled(), 'isEnabled did not return a false value');
 
   }
 
