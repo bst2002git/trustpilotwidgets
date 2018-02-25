@@ -70,3 +70,10 @@ RUN mkdir -p /builds/magento2 && \
     cd /builds/magento2 && \
     find . -type d -exec chmod 700 {} \; && find . -type f -exec chmod 600 {} \;
 #    php bin/magento setup:install --base-url="http://yoururl.com/" --db-host=${MYSQL_HOST} --db-name=${MYSQL_DATABASE} --db-user=${MYSQL_USERNAME} --db-password=${MYSQL_PASSWORD} --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin123" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin"
+
+# Make the phpunit executable in the vendors folder executable
+RUN chmod 777 /builds/magento2/vendor/bin/phpunit && \
+    alias unit-test="/builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist"
+
+# Make sample module location
+RUN mkdir -p /builds/magento2/app/code/Pillbox
