@@ -26,7 +26,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
 
   public function displayInfo($method, $test)
   {
-      fwrite(STDERR, "{$this->class}::$method - {$test} running...\n");
+      fwrite(STDERR, "{$this->class}::$method - {$test} running...\n\n");
   }
 
   /**
