@@ -16,16 +16,16 @@ class DataTest extends \PHPUnit\Framework\TestCase
 
     // Return value mapping - maps the values that will be returned by the getConfig
     // method, depending on the value passed to it
-    $configmap = [
-      [
+    $configmap = array(
+      array(
         'trustpilotwidgets/general/enable',
         'trustpilotwidgets/general/trustpilot_business_unit_id'
-      ],
-      [
+      ),
+      array(
         true,
         '1111111111'
-      ]
-    ];
+      )
+    );
 
     // helper_success stores positive (successful) results
     $this->helper = $this->createMock(Data::class);
