@@ -25,11 +25,14 @@ class DataTest extends \PHPUnit\Framework\TestCase
   public function testIsEnabled()
   {
 
-    // ensure the getConfig method returns the result
-    $this->helper->method('getConfig')->willReturn(true);
-    $this->helper->method('isEnabled')->willReturn($this->helper->getConfig(true));
+    // set the return value
+    $returnValue = true;
 
-    $this->assertEquals(true, $this->helper->isEnabled(), 'isEnabled did not return a true value');
+    // ensure the getConfig method returns the result
+    $this->setConfigReturnValue($returnValue);
+
+    // Run assertion
+    $this->assertEquals($returnValue, $this->helper->isEnabled(), 'isEnabled did not return a true value');
 
   }
 
@@ -39,11 +42,42 @@ class DataTest extends \PHPUnit\Framework\TestCase
   public function testIsEnabledFalse()
   {
 
-    // ensure the getConfig method returns the result
-    $this->helper->method('getConfig')->willReturn(false);
-    $this->helper->method('isEnabled')->willReturn($this->helper->getConfig(false));
+    // set the return value
+    $returnValue = false;
 
-    $this->assertEquals(false, $this->helper->isEnabled(), 'isEnabled did not return a false value');
+    // ensure the getConfig method returns the result
+    $this->setConfigReturnValue($returnValue);
+
+    // Run assertion
+    $this->assertEquals($returnValue, $this->helper->isEnabled(), 'isEnabled did not return a false value');
+
+  }
+
+  /**
+   * testGetBusinessUnitID
+   */
+  public function testGetBusinessUnitID()
+  {
+
+    // set the return value
+    $returnValue = '1111111111';
+
+    // ensure that the getConfig method returns the right value
+    $this->setConfigReturnValue($returnValue);
+
+    // Run assertion
+    $this->assertEquals($returnValue, $this->helper->getBusinessUnitID(), 'isEnabled did not return a false value');
+
+  }
+
+  /**
+   * setConfigReturnValue
+   * @param mixed $value Value that the getConfig method will return
+   */
+  public function setConfigReturnValue($value)
+  {
+
+    $this->helper->method('getConfig')->willReturn($value);
 
   }
 
