@@ -30,7 +30,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
   {
     // ensure the getConfig method returns the result
     $this->helper->method('getConfig')->willReturn(true);
-    $this->assertEquals(true, $this->helper_success->isEnabled());
+    $this->assertEquals(true, $this->helper->isEnabled());
 
   }
 
