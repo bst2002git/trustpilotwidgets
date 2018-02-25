@@ -14,21 +14,23 @@ class DataTest extends \PHPUnit\Framework\TestCase
   protected function setUp()
   {
 
+    // helper_success stores positive (successful) results
     $this->helper = $this->createMock(Data::class);
-    $this->helper->method('isEnabled')->willReturn(true);
+    /*$this->helper->method('isEnabled')->willReturn(true);
     $this->helper->method('getBusinessUnitID')->willReturn('businessunitid');
     $this->helper->method('getStoreLocale')->willReturn('en_US');
-    $this->helper->method('getConfig')->willReturn(true);
+    $this->helper->method('getConfig')->willReturn(true);*/
 
   }
 
   /**
    * testIsEnabledTrue
    */
-  public function testIsEnabledTrue()
+  public function testIsEnabled()
   {
-
-    $this->assertEquals(true, true);
+    // ensure the getConfig method returns the result
+    $this->helper->method('getConfig')->willReturn(true);
+    $this->assertEquals(true, $this->helper_success->isEnabled());
 
   }
 
@@ -37,7 +39,8 @@ class DataTest extends \PHPUnit\Framework\TestCase
    */
   public function testIsEnabledFalse()
   {
-
+    // ensure the getConfig method returns the result
+    $this->helper->method('getConfig')->willReturn(false);
     $this->assertEquals(false, $this->helper->isEnabled());
 
   }
