@@ -41,7 +41,7 @@ class DataTest extends \PHPUnit\Framework\TestCase
    */
   public function testIsEnabled()
   {
-
+    fwrite(STDERR, print_r($this->helper->getConfig('trustpilotwidgets/general/enable'), TRUE));
     // Run assertion
     $this->assertEquals(true, $this->helper->isEnabled(), 'isEnabled did not return a true value');
 
