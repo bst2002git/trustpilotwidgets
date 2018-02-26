@@ -1,4 +1,4 @@
-image: registry.gitlab.com/rawveg_modules/test-environment:develop
+image: registry.gitlab.com/pillboxmodules/trustpilotwidgets:develop_test
 
 services:
   - mysql:latest
@@ -7,6 +7,7 @@ variables:
   STAGING_REGISTRY: "registry.gitlab.com"
   CONTAINER_TEST_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}_test
   CONTAINER_RELEASE_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/${CI_PROJECT_NAME}:${CI_BUILD_REF_NAME}
+  CONTAINER_BUILD_IMAGE: ${STAGING_REGISTRY}/pillboxmodules/${CI_PROJECT_NAME}:develop_test
   MYSQL_HOST: mysql
   MYSQL_DATABASE: ${CI_PROJECT_NAME}
   MYSQL_ROOT_PASSWORD: magento2
@@ -17,6 +18,7 @@ variables:
 #  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
 
 stages:
+  - docker-build
   - unit-test
 
 unit-test:
@@ -32,5 +34,13 @@ unit-test:
   - chmod 777 /builds/magento2/vendor/bin/phpunit
   # Now that we've installed we need to run the tests
   - /builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist app/code/Pillbox/TrustpilotWidgets
+  only:
+  - develop
+
+docker-build:
+  stage: docker-build
+  script:
+    - docker build -t ${CONTAINER_BUILD_IMAGE} .
+    - docker push ${CONTAINER_BUILD_IMAGE}
   only:
   - develop
