@@ -1,5 +1,5 @@
 <?php
-namespace Pillbox\TrustpilotWidgets\Tests\Unit\Helper;
+namespace Pillbox\TrustpilotWidgets\Test\Unit\Helper;
 
 use Pillbox\TrustpilotWidgets\Helper\Data as Data;
 
