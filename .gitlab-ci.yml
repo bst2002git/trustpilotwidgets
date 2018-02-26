@@ -33,5 +33,3 @@ unit-test:
   - chmod 777 /builds/magento2/vendor/bin/phpunit
   # Now that we've installed we need to run the tests
   - /builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist app/code/Pillbox/TrustpilotWidgets
-  only:
-  - develop
