@@ -2,6 +2,7 @@ image: registry.gitlab.com/pillboxmodules/trustpilotwidgets:develop_test
 
 services:
   - mysql:latest
+  - docker:latest
 
 variables:
   STAGING_REGISTRY: "registry.gitlab.com"
