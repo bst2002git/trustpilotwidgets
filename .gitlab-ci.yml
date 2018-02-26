@@ -25,8 +25,14 @@ build:
   # First we need to install Magento 2 in order to use it for testing
   - cd /builds/magento2
   - php bin/magento setup:install --base-url="http://yoururl.com/" --db-host=$MYSQL_HOST --db-name=$MYSQL_DATABASE --db-user=$MYSQL_USER --db-password=$MYSQL_PASSWORD --admin-firstname="admin" --admin-lastname="admin" --admin-email="user@example.com" --admin-user="admin" --admin-password="admin123" --language="en_US" --currency="USD" --timezone="America/Chicago" --use-rewrites="1" --backend-frontname="admin"
+  # Setup an alias for the command
+  - cd /builds/magento2
+  - mkdir app/code/Pillbox
+  - ln -nsf /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME} app/code/Pillbox/Module
+  - alias unit-test='/builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist'
   # Now that we've installed we need to run the tests
-  - phpunit -c /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/phpunit-pillbox.xml --bootstrap /builds/magento2/dev/tests/unit/framework/bootstrap.php
+  # phpunit -c /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/phpunit-pillbox.xml --bootstrap /builds/magento2/dev/tests/unit/framework/bootstrap.php
+  - unit-test app/code/Pillbox/Module
   when: manual
   only:
   - develop
