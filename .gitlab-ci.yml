@@ -29,6 +29,7 @@ build:
   - cd /builds/magento2
   - mkdir -p app/code/Pillbox
   - ln -nsf /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME} app/code/Pillbox/TrustpilotWidgets
+  - chmod 777 /builds/magento2/vendor/bin/phpunit
   # alias unit-test='/builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist'
   # Now that we've installed we need to run the tests
   # phpunit -c /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/phpunit-pillbox.xml --bootstrap /builds/magento2/dev/tests/unit/framework/bootstrap.php
