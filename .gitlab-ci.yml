@@ -17,10 +17,10 @@ variables:
 #  - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $STAGING_REGISTRY
 
 stages:
-  - build
+  - unit-test
 
-build:
-  stage: build
+unit-test:
+  stage: unit-test
   script:
   # First we need to install Magento 2 in order to use it for testing
   - cd /builds/magento2
@@ -30,9 +30,7 @@ build:
   - mkdir -p app/code/Pillbox
   - ln -nsf /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME} app/code/Pillbox/TrustpilotWidgets
   - chmod 777 /builds/magento2/vendor/bin/phpunit
-  # alias unit-test='/builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist'
   # Now that we've installed we need to run the tests
-  # phpunit -c /builds/${CI_PROJECT_NAMESPACE}/${CI_PROJECT_NAME}/phpunit-pillbox.xml --bootstrap /builds/magento2/dev/tests/unit/framework/bootstrap.php
   - /builds/magento2/vendor/bin/phpunit -c /builds/magento2/dev/tests/unit/phpunit.xml.dist app/code/Pillbox/TrustpilotWidgets
   only:
   - develop
