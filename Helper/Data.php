@@ -14,7 +14,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isEnabled()
     {
-      return ($this->getConfig('trustpilotwidgets/general/enable')  == 1) ? true : false;
+        return ($this->getConfig('trustpilotwidgets/general/enable') == 1) ? true : false;
     }
 
     /**
@@ -23,7 +23,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getBusinessUnitID()
     {
-      return $this->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id');
+        return $this->getConfig('trustpilotwidgets/general/trustpilot_business_unit_id');
     }
 
     /**
@@ -32,9 +32,9 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getStoreLocale()
     {
-      $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-      $resolver = $objectManager->get('Magento\Framework\Locale\Resolver');
-      return $resolver->getLocale();
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $resolver = $objectManager->get('Magento\Framework\Locale\Resolver');
+        return str_replace('_', '-', $resolver->getLocale());
     }
 
     /**
@@ -44,7 +44,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getConfig($config_path)
     {
-      return $this->scopeConfig->getValue($config_path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue($config_path, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
     }
 
 }
