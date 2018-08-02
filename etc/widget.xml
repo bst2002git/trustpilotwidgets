@@ -497,9 +497,9 @@
 		<label>Trustbox - Product Reviews SEO</label>
 		<description>A TrustBox to display your product reviews and reassure your customers’ decision to buy. Additionally, it gives you all of the SEO benefits to boost the organic ranking of your site.</description>
 		<parameters>
-			<parameter name="sku" sort_order="10" visible="true" xsi:type="text">
-				<label>Product SKU(s)</label>
-			</parameter>
+				<parameter name="sku" sort_order="10" visible="true" xsi:type="multiselect" source_model="Pillbox\TrustpilotWidgets\Model\Source\Products">
+					<label>Product SKU(s)</label>
+				</parameter>
 				<parameter name="name" sort_order="10" visible="true" xsi:type="text">
 					<label>Product Name</label>
 				</parameter>
