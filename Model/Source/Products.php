@@ -17,7 +17,7 @@ class Products implements \Magento\Framework\Option\ArrayInterface
     {
         $collection = $this->_productCollectionFactory->create();
         $collection->addAttributeToSelect('*');
-        $collection->addAttributeToFilter('type_id', array('in' => array('simple', 'configurable')));
+        $collection->addAttributeToFilter('type_id', array('in' => array('simple', 'configurable', 'bundle')));
         $collection->getSelect()->order('sku', \Magento\Framework\DB\Select::SQL_ASC);
         return $collection;
     }
