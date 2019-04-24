@@ -578,6 +578,34 @@
 			</parameter>
 		</parameters>
 	</widget>
+	
+  <!-- Trustbox Slider -->
+	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Slider" id="pillbox_trustpilotwidgets_slider">
+		<label>Trustbox - Slider</label>
+		<description>In short, this TrustBox communicates that We’re sharing our latest reviews to keep our customers - and our credibility - up to date.</description>
+		<parameters>
+      <parameter name="theme" xsi:type="select" required="true" visible="true">
+      <label translate="true">Theme</label>
+        <options>
+          <option name="default" value="light" selected="true">
+            <label translate="true">Light Template</label>
+          </option>
+          <option name="top_products" value="dark">
+            <label translate="true">Dark Template</label>
+          </option>
+        </options>
+      </parameter>
+			<parameter name="width" sort_order="10" visible="true" xsi:type="text">
+				<label>Width</label>
+			</parameter>
+			<parameter name="height" sort_order="10" visible="true" xsi:type="text">
+				<label>Height</label>
+			</parameter>
+			<parameter name="stars" sort_order="10" visible="true" xsi:type="text">
+				<label>Stars</label>
+			</parameter>
+		</parameters>
+	</widget>
 
   <!-- Trustbox Starter -->
 	<widget class="Pillbox\TrustpilotWidgets\Block\Widget\Starter" id="pillbox_trustpilotwidgets_starter">
